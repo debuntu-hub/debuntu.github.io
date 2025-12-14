@@ -1,89 +1,260 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Progate</title>
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <title>投資成績分析システム 仕様書</title>
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
 </head>
 <body>
-  <header>
-    <div class="container">
-      <div class="header-left">
-        <img class="logo" src="https://prog-8.com/images/html/advanced/main_logo.png">
+  <header class="page-header">
+    <div class="container header-container">
+      <div class="branding">
+        <div class="logo-mark" aria-hidden="true">R</div>
+        <div>
+          <p class="eyebrow">期待値最大化プロジェクト</p>
+          <h1>投資成績分析システム</h1>
+        </div>
       </div>
-      <span class="fa fa-bars menu-icon"></span>
-      <div class="header-right">
-        <a href="#">うんちレッスン</a>
-        <a href="#">新規登録</a>
-        <a href="#" class="login">ログイン</a>
-      </div>
+      <nav class="nav-links">
+        <a href="#purpose">目的</a>
+        <a href="#data">データ仕様</a>
+        <a href="#analysis">分析</a>
+        <a href="#policy">運用</a>
+      </nav>
     </div>
   </header>
-  <div class="top-wrapper">
-    <div class="container">
-      <h1>LEARN TO CODE.<br>LEARN TO BE CREATIVE.</h1>
-      <p>Progateはオンラインプログラミング学習サービスです。<br>初心者にもやさしいスライドとレッスンで、ウェブサービスを作りながらプログラミングを学んでいきましょう。</p>
-      <div class="btn-wrapper">
-        <a href="#" class="btn signup">新規登録はこちら</a>
-        <p>or</p>
-        <a href="#" class="btn facebook"><span class="fa fa-facebook"></span>Facebookで登録</a>
-        <a href="#" class="btn twitter"><span class="fa fa-twitter"></span>Twitterで登録</a>
-      </div>
-    </div>
-  </div>
-  <div class="lesson-wrapper">
-    <div class="container">
-      <div class="heading">
-        <h2>Learn Where to Get Started!</h2>
-      </div>
-      <div class="lessons">
-        <div class="lesson">
-          <div class="lesson-icon">
-            <img src="https://prog-8.com/images/html/advanced/html.png">
-            <p>HTML & CSS</p>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">日本株 現物取引に最適化</p>
+          <h2>1トレードあたりの期待値（平均R）を最大化する</h2>
+          <p class="lede">過去の取引履歴と市場データを統合し、再現可能な高期待値トレードだけを実行するための仕様書です。月次・四半期での継続的な改善を前提とした運用設計を示します。</p>
+          <div class="pill-list">
+            <span class="pill">固定損切り -8%</span>
+            <span class="pill">平均Rで評価</span>
+            <span class="pill">定期見直し</span>
           </div>
-          <p class="text-contents">ウェブページの作成に使用される言語です。HTMLとCSSを組み合わせることで、静的なページを作り上げることができます。</p>
         </div>
-        <div class="lesson">
-          <div class="lesson-icon">
-            <img src="https://prog-8.com/images/html/advanced/jQuery.png">
-            <p>jQuery</p>
-          </div>
-          <p class="text-contents">素敵な動きを手軽に実装できるJavaScriptライブラリです。 アニメーション効果をつけたり、Ajax（エイジャックス）を使って外部ファイルを読み込んだりと色々なことができます。</p>
-        </div>
-        <div class="lesson">
-          <div class="lesson-icon">
-            <img src="https://prog-8.com/images/html/advanced/ruby.png">
-            <p>Ruby</p>
-          </div>
-          <p class="text-contents">オープンソースの動的なプログラミング言語で、 シンプルさと高い生産性を備えています。大きなWebアプリケーションから小さな日用ツールまで、さまざまなソフトウェアを作ることができます。</p>
-        </div>
-        <div class="lesson">
-          <div class="lesson-icon">
-            <img src="https://prog-8.com/images/html/advanced/php.png">
-            <p>PHP</p>
-          </div>
-          <p class="text-contents">HTMLだけではページの内容を変えることはできません。PHPはHTMLにプログラムを埋め込み、それを可能にします。</p>
+        <div class="card">
+          <h3>基本前提</h3>
+          <ul class="key-points">
+            <li>対象：日本株（現物）</li>
+            <li>損切り：-8% 固定</li>
+            <li>期待値：平均R = 実現リターン(%) ÷ 8%</li>
+            <li>1トレード：残高が0に戻るまでを1行で管理</li>
+          </ul>
         </div>
       </div>
-      <div class="clear"></div>
-    </div>
-  </div>
-  <div class="message-wrapper">
-    <div class="container">
-      <div class="heading">
-        <h2>さぁ、あなたもProgateでプログラミングを学んでみませんか?</h2>
-        <h3>Let's learn to code, learn to be creative!</h3>
+    </section>
+
+    <section id="purpose" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Purpose</p>
+          <h2>目的</h2>
+        </div>
+        <div class="grid two-col">
+          <p>上手くいった／ダメだったトレードを定量的に分類し、期待値が高い条件のみを抽出して投資ルールへ落とし込みます。感覚的な売買判断を排除し、再現可能なプロセスを重視します。</p>
+          <div class="card highlight">
+            <h3>期待値の定義</h3>
+            <p class="formula">R = 実現リターン(%) ÷ 8%<br>期待値 = 平均R</p>
+            <p>トレードの成否は平均Rで測定し、0を下回る条件は採用しません。</p>
+          </div>
+        </div>
       </div>
-      <span class="btn message">さっそく開発する</span>
-    </div>
-  </div>
-  <footer>
-    <div class="container">
-      <img src="https://prog-8.com/images/html/advanced/footer_logo.png">
-      <p>Learn to Code, Learn to be Creative.</p>
+    </section>
+
+    <section class="section light">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Architecture</p>
+          <h2>システム全体構成</h2>
+        </div>
+        <ol class="flow">
+          <li>証券会社の約定履歴を整形</li>
+          <li>トレード正規化（1トレード=1行）</li>
+          <li>J-Quantsの日足データを結合</li>
+          <li>特徴量を付与（地合い・出来高・ギャップ率など）</li>
+          <li>期待値分析・条件評価</li>
+          <li>投資方針・ルールを更新</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="data" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Data Specs</p>
+          <h2>データ仕様</h2>
+        </div>
+
+        <div class="card">
+          <h3>トレード正規化ルール</h3>
+          <ul class="bullet-list">
+            <li><strong>1トレードの定義：</strong>同一銘柄でBuyにより残高が正になってから、Sellで0に戻るまで。</li>
+            <li>分割エントリー・分割利確は同一トレードに統合。</li>
+            <li><strong>処理順：</strong>exec_datetime昇順。同一日時は入力順。</li>
+            <li><strong>損益計算：</strong>pnl_yen = Σ(sell_price×qty) − Σ(buy_price×qty) − fee_amount</li>
+            <li>pnl_pct = pnl_yen ÷ buy_amount</li>
+            <li>R = pnl_pct ÷ 8%</li>
+            <li>Sell先行や残高マイナスは不整合として除外。</li>
+          </ul>
+        </div>
+
+        <div class="grid two-col data-grid">
+          <div class="card">
+            <h4>約定データ（証券会社）</h4>
+            <ul class="data-points">
+              <li>trade_fill_id, code, side (Buy/Sell)</li>
+              <li>exec_datetime, price, quantity, fee</li>
+              <li>account_type (NISA/特定/一般)</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>トレードデータ（分析用）</h4>
+            <ul class="data-points">
+              <li>trade_id, code, entry_date, exit_date</li>
+              <li>avg_entry_price, avg_exit_price</li>
+              <li>buy_amount, sell_amount, fee_amount</li>
+              <li>pnl_yen, pnl_pct, R, holding_days</li>
+              <li>peak_exposure（任意）</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>市場データ（J-Quants）</h4>
+            <ul class="data-points">
+              <li>date, code, open/high/low/close</li>
+              <li>volume, adj_close</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>市場環境データ</h4>
+            <ul class="data-points">
+              <li>index: TOPIX</li>
+              <li>close, ma_25</li>
+              <li>trend_flag: 上昇 / 下落</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4>データ品質チェック</h4>
+            <ul class="data-points">
+              <li>Sell先行や残高マイナスの検知</li>
+              <li>手数料集計（約定単位→トレード単位）</li>
+              <li>タイムゾーン/日付のずれを正規化</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section light" id="features">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Feature Engineering</p>
+          <h2>特徴量設計（エントリー時点）</h2>
+        </div>
+        <div class="pill-list">
+          <span class="pill">52週高値更新フラグ</span>
+          <span class="pill">直近高値ブレイク種別</span>
+          <span class="pill">出来高急増率（当日 ÷ 過去20日平均）</span>
+          <span class="pill">ギャップ率</span>
+          <span class="pill">ATR</span>
+          <span class="pill">移動平均乖離率</span>
+          <span class="pill">地合いフラグ（TOPIX×25MA）</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="analysis">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Analysis</p>
+          <h2>分析仕様</h2>
+        </div>
+        <div class="grid two-col">
+          <div class="card">
+            <h3>基本指標</h3>
+            <ul class="bullet-list">
+              <li>トレード数 / 勝率 / 平均リターン(%)</li>
+              <li><strong>平均R（期待値）</strong></li>
+              <li>連敗数（任意）</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>条件別期待値分析</h3>
+            <p class="subtitle">特徴量ごとにグループ分けし平均Rを算出</p>
+            <ul class="bullet-list">
+              <li>出来高 ≥ 2倍 / &lt; 2倍</li>
+              <li>地合い良 / 悪</li>
+              <li>ブレイク種別別 など</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section light" id="policy">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Operation</p>
+          <h2>投資方針と定期見直し</h2>
+        </div>
+        <div class="grid two-col">
+          <div class="card">
+            <h3>投資方針への落とし込み</h3>
+            <ul class="bullet-list">
+              <li>平均R ≤ 0 の条件は採用しない</li>
+              <li>平均Rが高い条件のみを組み合わせ（最大3つ）</li>
+              <li>目的は「トレード数削減」ではなく「期待値最大化」</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>定期見直し運用</h3>
+            <p class="subtitle">月次または四半期で実施</p>
+            <ol class="flow small">
+              <li>直近期間の条件別平均Rを再計算</li>
+              <li>期待値が低下した条件を1つ削除</li>
+              <li>新条件を1つだけ追加して検証（同時変更は避ける）</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Output</p>
+          <h2>最終アウトプット</h2>
+        </div>
+        <div class="grid three-col outputs">
+          <div class="card">
+            <h3>投資条件一覧</h3>
+            <p>採用中の条件とその平均Rを明示し、実行可能な売買ルールとして管理。</p>
+          </div>
+          <div class="card">
+            <h3>資産曲線・期待値推移</h3>
+            <p>期間ごとの平均Rの変化を可視化し、ルールの陳腐化を検知します。</p>
+          </div>
+          <div class="card">
+            <h3>次期検証テーマ</h3>
+            <p>改善の仮説を1つだけ設定し、検証と学習を繰り返します。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    <div class="container footer-content">
+      <div>
+        <p class="eyebrow">Goal</p>
+        <p><strong>再現可能な高期待値トレードのみ実行</strong></p>
+      </div>
+      <p class="tagline">Data-driven investing for resilient performance.</p>
     </div>
   </footer>
 </body>
